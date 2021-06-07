@@ -20,7 +20,7 @@
 <head>
 	<title>Index</title>
 	<script type="text/javascript" src="jquery.js"></script>
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="css/css.css">
 </head>
 <body>
 	<form method="post" action="login_process.php"  enctype="multipart/form-data">
