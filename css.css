@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: 'Roboto',sans-serif;
+}
+body{
+	display: flex;
+	background-color: #ebebeb;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+.kotak-login{
+	padding: 20px;
+	background-color: #fff;
+	border-radius:5px;
+	box-shadow: 0px -1px 17px 11px rgba(0,0,0,0.33);
+-webkit-box-shadow: 0px -1px 17px 11px rgba(0,0,0,0.33);
+-moz-box-shadow: 0px -1px 17px 11px rgba(0,0,0,0.33);
+
+}
+
+.form-control{
+	display: flex;
+	padding: 5px;
+	grid-gap: 5px;
+}
+.div-label{
+	width: 50%;
+	padding: 5px;
+}
+header h1{
+	margin-bottom: 10px;
+}
+
+.button input, .form-control input{
+	background: none;
+}
+
+.div-control{
+	/*border: 1px solid black;*/
+}
+
+.form-control input{
+	padding: 5px;
+	border-radius: 7px;
+	outline: none;
+	border: 1.5px solid black;
+}
+
+.button input{
+	margin-top: 10px;
+	width: 100%;
+	height: 30px;
+	border-radius: 5px;
+	background-color: #333333;
+	cursor: pointer;
+	color: white;
+}
+.button input:hover{
+	background-color: #010101;
+}
+footer{
+	padding: 10px;
+}
+footer p{
+	text-align: center;
+}
+
+footer p a{
+	text-decoration: bold;
+	color: blue;
+}
+
+footer p a:hover{
+	text-decoration: underline;
+}
+
+/*css index*/
+.wrapper{
+	width: 80%;
+	display: grid;
+	grid-template-columns: 300px auto;
+	grid-template-rows: 1fr 1fr 9fr;
+	grid-template-areas:
+		"header header"
+		"nav main"
+		"aside main";
+	max-height: 90vh;
+	background-color: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.pembungkus-kiri{
+	display: flex;
+	align-items: center;
+}
+header{
+	grid-area: header;
+	background-color: #333333;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+header .gambar{
+	overflow: hidden;
+	margin: 0 10px;
+}
+header .nama{
+	color: white;
+}
+header a{
+	background-color: #d8d8d8;
+	border-radius: 5px;
+	padding: 5px 10px;
+	color: #333333;
+	margin-right: 10px;
+}
+header a:hover{
+	background-color: #888;
+}
+header img{
+	object-fit: cover;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	margin-top: 5px;
+}
+nav{
+	grid-area: nav;
+	padding: 10px;
+}
+nav input{
+	width: 100%;
+	border: 0;
+	background: none;
+	background-color: #f2f2f2;
+	padding: 10px;
+	color: black;
+	border-radius: 5px;
+	outline: none;
+}
+aside{
+	grid-area: aside;
+	padding: 0 5px;
+	overflow-y: auto;
+	padding-bottom: 10px;
+}
+aside::-webkit-scrollbar{
+	width: 10px;
+}
+aside::-webkit-scrollbar-track{
+	background: #f1f1f1;
+}
+aside::-webkit-scrollbar-thumb{
+	background: #6f6f6f;
+}
+aside::-webkit-scrollbar-thumb:hover{
+	background: #555;
+}
+aside .list-chat{
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #f1f1f1;
+	cursor: pointer;
+}
+.profile-picture{
+	margin: 0 10px;
+}
+img{
+	border-radius: 50%;
+	object-fit: cover;
+}
+.profile-picture img{
+	margin-top: 5px;
+	border-radius: 50%;
+	object-fit: cover;
+	width: 45px;
+	height: 45px;
+}
+.profile-name{
+	margin-bottom: 10px;
+	max-height: 16px;
+	overflow-y: hidden;
+}
+.chat-content{
+	font-size: 12px;
+	overflow-wrap: break-word;
+}
+.info-chat{
+}
+main{
+	display: flex;
+	grid-area: main;
+	border-left: 1.5px solid rgb(0,0,0);
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 50px;
+}
+main .content{
+	max-height: 500px;
+	overflow-y: auto;
+	padding: 0 10px;
+}
+.content .details p{
+	padding: 8px 16px;
+	word-wrap: break-word;
+}
+
+.content .chat-keluar, .chat-masuk{
+	display: flex;
+}
+.chat-keluar .details{
+	margin-left: auto;
+	max-width: 60%;
+}
+
+.chat-keluar,.chat-masuk{
+	margin: 10px 0px;
+}
+
+.chat-keluar .details p{
+	background-color: #333333;
+	color: #fff;
+	border-radius: 18px 18px 0px 18px;
+}
+.chat-masuk .details p{
+	background-color: #ebebeb;
+	color: #333333;
+	border-radius: 18px 18px 18px 0px;
+}
+.chat-masuk .details{
+	margin-right: auto;
+	max-width: 60%;
+}
+.chat-masuk img{
+	height: 35px;
+	width: 35px;
+	align-self: flex-end;
+	margin-right: 10px;
+}
+.chat-masuk
+main .send-message{
+	background-color: magenta;
+}
+
+.content::-webkit-scrollbar{
+	width: 10px;
+}
+.content::-webkit-scrollbar-track{
+	background: #f1f1f1;
+}
+.content::-webkit-scrollbar-thumb{
+	background: #6f6f6f;
+}
+.content::-webkit-scrollbar-thumb:hover{
+	background: #555;
+}
