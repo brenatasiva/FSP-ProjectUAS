@@ -225,7 +225,10 @@
 		</div>
 	</aside>
 	<main>
-		<div class="content">
+		<div class="start-chat">
+			<h1>Select friends to start chat!</h1>
+		</div>
+		<div class="content hidden">
 			<div class="chat-keluar">
 				<div class="information">
 					<p>Read</p>
@@ -289,7 +292,7 @@
 		</div>
 		
 
-		<div class="send-message">
+		<div class="send-message hidden">
 			<img src="mario.jpg">
 			<input type="text" placeholder="Type a message...">
 			<button><i class="fab fa-telegram-plane"></i></button>

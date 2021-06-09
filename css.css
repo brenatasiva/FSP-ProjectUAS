@@ -207,6 +207,10 @@ main{
 	flex-direction: column;
 	padding: 50px;
 }
+.start-chat h1{
+	text-align: center;
+	margin-top: 200px;
+}
 main .content{
 	overflow-y: auto;
 	padding: 0 10px;
@@ -317,7 +321,7 @@ main .send-message{
 }
 
 .hidden{
-	display: none !imporant;
+	display: none !important;
 }
 
 @media (max-width: 576px){
