@@ -21,6 +21,7 @@
 	<title>Index</title>
 	<script type="text/javascript" src="jquery.js"></script>
 	<link rel="stylesheet" href="css.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -226,6 +227,10 @@
 	<main>
 		<div class="content">
 			<div class="chat-keluar">
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -237,6 +242,10 @@
 				</div>
 			</div>
 			<div class="chat-keluar">
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -248,6 +257,10 @@
 				</div>
 			</div>
 			<div class="chat-keluar">
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -259,6 +272,10 @@
 				</div>
 			</div>
 			<div class="chat-keluar">
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -273,8 +290,9 @@
 		
 
 		<div class="send-message">
-			<img src="">
-			<input type="text">
+			<img src="mario.jpg">
+			<input type="text" placeholder="Type a message...">
+			<button><i class="fab fa-telegram-plane"></i></button>
 		</div>
 	</main>
 	</div>

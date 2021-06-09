@@ -150,6 +150,13 @@ aside{
 	overflow-y: auto;
 	padding-bottom: 10px;
 }
+aside .list-chat:hover{
+	background-color: #f2f2f2;
+}
+
+.chat-clicked{
+	background-color: #cccccc;
+}
 aside::-webkit-scrollbar{
 	width: 10px;
 }
@@ -198,13 +205,13 @@ main{
 	grid-area: main;
 	border-left: 1.5px solid rgb(0,0,0);
 	flex-direction: column;
-	justify-content: space-between;
 	padding: 50px;
 }
 main .content{
-	max-height: 500px;
 	overflow-y: auto;
 	padding: 0 10px;
+	flex-grow: 2;
+	max-width: 830px;
 }
 .content .details p{
 	padding: 8px 16px;
@@ -215,7 +222,6 @@ main .content{
 	display: flex;
 }
 .chat-keluar .details{
-	margin-left: auto;
 	max-width: 60%;
 }
 
@@ -227,11 +233,25 @@ main .content{
 	background-color: #333333;
 	color: #fff;
 	border-radius: 18px 18px 0px 18px;
+	box-shadow: 4px 13px 19px -9px rgba(0,0,0,0.75);
+}
+.chat-keluar .information{
+	margin-left: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 10px;
+}
+.information p{
+	font-size: 12px;
+	color: #b0b0b0;
 }
 .chat-masuk .details p{
 	background-color: #ebebeb;
 	color: #333333;
 	border-radius: 18px 18px 18px 0px;
+	box-shadow: 4px 13px 19px -9px rgba(0,0,0,0.75);
 }
 .chat-masuk .details{
 	margin-right: auto;
@@ -243,9 +263,12 @@ main .content{
 	align-self: flex-end;
 	margin-right: 10px;
 }
-.chat-masuk
 main .send-message{
-	background-color: magenta;
+	padding: 5px;
+	flex-grow: 1;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
 
 .content::-webkit-scrollbar{
@@ -259,4 +282,57 @@ main .send-message{
 }
 .content::-webkit-scrollbar-thumb:hover{
 	background: #555;
+}
+
+.send-message img{
+	height: 50px;
+	width: 50px;
+}
+
+.send-message input{
+	width: 70%;
+	border: 0;
+	background: none;
+	background-color: #f2f2f2;
+	padding: 10px;
+	color: black;
+	border-radius: 5px;
+	outline: none;
+}
+
+.send-message button{
+	width: 50px;
+	border: none;
+	padding: 10px;
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: #333;
+}
+.send-message button:hover{
+	background-color: #010101;
+}
+.send-message i{
+	color: #fff;
+}
+
+.hidden{
+	display: none !imporant;
+}
+
+@media (max-width: 576px){
+	.wrapper{
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr 1fr 9fr;
+		grid-template-areas: 
+			"header"
+			"nav"
+			"aside";
+		width: 100%;
+		min-height: 100vh;
+		overflow: inherit;
+	}
+	main{
+		display: none;
+	}
 }
