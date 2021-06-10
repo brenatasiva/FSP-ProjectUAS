@@ -49,22 +49,29 @@
 	</div>
 
 	<script type="text/javascript">
+		var receiver;
+		var sender;
+		var interval;
+
 		$('body').on('change', '#listuser', function(){
-			var receiver = $("#listuser").val();
-			var sender = '<?php echo $id ?>';
-			setInterval(function(){
-				$.ajax({
-					method: "post",
-					url: "realtime_ajax.php",
-					data: {sender: sender,
-							receiver: receiver},
-					dataType: "text",
-					success:function(data){
-						$('#container_content').html(data);
-					}
-				});
-			}, 300);
+			clearInterval(interval);
+			receiver = $("#listuser").val();
+			sender = '<?php echo $id ?>';
+			interval = setInterval(realtime, 300);
 		});
+
+		function realtime(){
+			$.ajax({
+				method: "post",
+				url: "realtime_ajax.php",
+				data: {sender: sender,
+						receiver: receiver},
+				dataType: "text",
+				success:function(data){
+					$('#container_content').html(data);
+				}
+			});
+		}
 
 		$('body').on('click', '#btnsend', function(){
 			var receiver = $("#listuser").val();
