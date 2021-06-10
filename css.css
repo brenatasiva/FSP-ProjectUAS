@@ -33,7 +33,7 @@ body{
 	width: 50%;
 	padding: 5px;
 }
-header h1{
+.judul-chat h1{
 	margin-bottom: 10px;
 }
 
@@ -84,7 +84,7 @@ footer p a:hover{
 .wrapper{
 	width: 80%;
 	display: grid;
-	grid-template-columns: 300px auto;
+	grid-template-columns: minmax(100px,300px) minmax(300px,auto);
 	grid-template-rows: 1fr 1fr 9fr;
 	grid-template-areas:
 		"header header"
@@ -331,12 +331,13 @@ main .send-message{
 		grid-template-areas: 
 			"header"
 			"nav"
-			"aside";
+			"aside"
+			"main";
 		width: 100%;
-		min-height: 100vh;
-		overflow: inherit;
+		max-height: 100vh;
 	}
 	main{
 		display: none;
+		overflow-y: auto;
 	}
 }

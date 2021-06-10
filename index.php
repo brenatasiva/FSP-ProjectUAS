@@ -225,10 +225,10 @@
 		</div>
 	</aside>
 	<main>
-		<div class="start-chat">
+		<div class="start-chat hidden">
 			<h1>Select friends to start chat!</h1>
 		</div>
-		<div class="content hidden">
+		<div class="content">
 			<div class="chat-keluar">
 				<div class="information">
 					<p>Read</p>
@@ -239,6 +239,10 @@
 				</div>
 			</div>
 			<div class="chat-masuk">
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
 				<img src="billy.jpg" alt="">
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
@@ -292,7 +296,7 @@
 		</div>
 		
 
-		<div class="send-message hidden">
+		<div class="send-message">
 			<img src="mario.jpg">
 			<input type="text" placeholder="Type a message...">
 			<button><i class="fab fa-telegram-plane"></i></button>
@@ -337,6 +341,12 @@
 				}
 			});
 		});
+
+		$('body').on('click','.list-chat', function(){
+			$('aside').hide();
+			$('nav').hide();
+			$('main').show();
+		})
 	</script>
 </body>
 </html>

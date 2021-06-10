@@ -10,9 +10,9 @@
 <body>
 	<div class="kotak-login">
 		<form method="post" action="login_process.php"  enctype="multipart/form-data">
-			<header>
+			<div class='judul-chat'>
 				<h1>Nge-Chat</h1>
-			</header>
+		</div>
 			<div class="form-control">
 				<div class="div-label">
 					<label for="">Username</label>
