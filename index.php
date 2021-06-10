@@ -7,9 +7,6 @@
 		$username = $_SESSION['username'];
 		$id = $_SESSION['iduser'];
 		$name = $_SESSION['name'];
-
-		$sql = "UPDATE users set status = 'Online' where iduser = $id";
-		$res = $mysqli->query($sql);
 	}else{
 		header("location: login.php");
 	}

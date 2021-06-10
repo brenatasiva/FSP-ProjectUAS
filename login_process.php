@@ -26,6 +26,8 @@
 					$_SESSION['name'] = $row['name'];
 				}
 				
+				$sql = "UPDATE users set status = 'Online' where iduser = $id";
+				$res = $mysqli->query($sql);
 			}
 			header("location: index.php");
 		}
@@ -33,6 +35,8 @@
 
 		}
 		if(isset($_POST['btnlogout'])){
+			$sql = "UPDATE users set status = 'Offline' where iduser = " . $_SESSION['iduser'];
+			$res = $mysqli->query($sql);
 			session_destroy();
 			header("location: login.php");
 		}
