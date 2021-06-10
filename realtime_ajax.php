@@ -18,11 +18,12 @@
 		$res = $stmt->get_result();
 
 		while ($row = $res->fetch_assoc()) {
+			$date = date_create($row['time']);
 			if($row['sender'] == $sender){
 				$result .= '<div class="chat-keluar">
 								<div class="information">
 									<p>Read</p>
-									<p>12.50 AM</p>
+									<p>' . date_format($date,"h:i A") . '</p>
 								</div>				
 								<div class="details">
 									<p>' . $row['message'] . '</p>
@@ -36,7 +37,7 @@
 								</div>
 								<div class="information">
 									<p>Read</p>
-									<p>12.50 AM</p>
+									<p>' . date_format($date,"h:i A") . '</p>
 								</div>
 							</div>';
 			}

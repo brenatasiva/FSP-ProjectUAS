@@ -26,34 +26,7 @@
 </head>
 <body>
 	<div class="wrapper">
-	<!-- <form method="post" action="login_process.php"  enctype="multipart/form-data">
-		<input type="submit" name="btnlogout" value="LOGOUT">
-	</form>
-	<label>Welcome <?php echo $name ?>!</label><br>
-	<label>List Teman</label>
-	<select id="listuser">
-		<option value="">Pilih Teman</option>
-		<?php  
-			$sql = "SELECT * from users where iduser != ?";
-			$stmt = $mysqli->prepare($sql);
-			$stmt->bind_param("i",$id);
-			$stmt->execute();
-			$res = $stmt->get_result();
-			while ($row = $res->fetch_assoc()) {
-				echo "<option value='".$row['iduser']."'>".$row['name']."</option>";
-			}
-		?>
-	</select><br>
-
-	<div id="container_chatbox">
-		<div id="container_content">
-
-		</div>
-		<div id="textbox">
-			<input type="textbox" id="txtmessage"><input type="button" id="btnsend" value="SEND">
-		</div>
-	</div> -->
-	<header>
+		<header>
 			<div class="pembungkus-kiri">
 				<div class="gambar">
 					<img src="billy.jpg" alt="">
@@ -63,28 +36,28 @@
 				</div>
 			</div>
 			<a href="login_process.php" class="pembungkus-kanan" name='btnlogout'>Logout</a>
-	</header>
-	<nav>
-		<input type="text" placeholder="Search..">
-	</nav>
-	<aside id='aside'>
+		</header>
+		<nav>
+			<input type="text" placeholder="Search..">
+		</nav>
+		<aside id='aside'>
 
-	</aside>
-	<main>
-		<div class="start-chat" id='start-chat'>
-			<h1>Select friends to start chat!</h1>
-		</div>
-		<div class="content hidden" id='content'>
+		</aside>
+		<main>
+			<div class="start-chat" id='start-chat'>
+				<h1>Select friends to start chat!</h1>
+			</div>
+			<div class="content hidden" id='content'>
+				
+			</div>
 			
-		</div>
-		
 
-		<div class="send-message hidden" id='send-message'>
-			<img src="mario.jpg">
-			<input type="text" placeholder="Type a message..." id='txtmessage'>
-			<button id='btnsend'><i class="fab fa-telegram-plane"></i></button>
-		</div>
-	</main>
+			<div class="send-message hidden" id='send-message'>
+				<img src="mario.jpg">
+				<input type="text" placeholder="Type a message..." id='txtmessage'>
+				<button id='btnsend'><i class="fab fa-telegram-plane"></i></button>
+			</div>
+		</main>
 	</div>
 
 	<script type="text/javascript">
@@ -123,11 +96,12 @@
 				$('aside').addClass('hidden');
 				$('main').addClass('display-flex');
 			}
-
+			$(this).addClass('chat-clicked');
 			clearInterval(interval);
 			receiver = $(this).attr('idreceiver');
-			interval = setInterval(realtime, 500);
+			interval = setInterval(realtime, 300);
 			$('#txtmessage').focus();
+			
 		});
 
 		function realtime(){
