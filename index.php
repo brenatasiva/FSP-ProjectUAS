@@ -59,7 +59,7 @@
 					<img src="billy.jpg" alt="">
 				</div>
 				<div class="nama">
-					<h4>Billy Renatasivu</h4>
+					<h4><?php echo $name; ?></h4>
 				</div>
 			</div>
 			<a href="#" class="pembungkus-kanan">Logout</a>
@@ -68,246 +68,48 @@
 		<input type="text" placeholder="Search..">
 	</nav>
 	<aside>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="list-chat">
-			<div class="profile-picture">
-				<img src="billy.jpg">
-			</div>
-			<div class="info-chat">
-				<div class="profile-name">
-					<h5>Venansius Mario</h5>
-				</div>
-				<div class="chat-content">
-					<p>Test Message</p>
-				</div>
-			</div>
-		</div>
+		<?php  
+			$sql = "SELECT * from users where iduser != ?";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("i",$id);
+			$stmt->execute();
+			$res = $stmt->get_result();
+			while ($row = $res->fetch_assoc()) {
+				$sql = "SELECT * from chat where (sender = ? and receiver = ?) or (sender = ? and receiver = ?) order by idchat desc limit 1";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("iiii", $id, $row['iduser'], $row['iduser'], $id);
+				$stmt->execute();
+				$res2 = $stmt->get_result();
+				$row2 = $res2->fetch_assoc();
+				if(mysqli_num_rows($res2) > 0) $lastmsg = $row2['message'];
+				else $lastmsg = "No New Message"
+				
+				(strlen($lastmsg) > 28) ? $row2['message'] = substr($lastmsg, 0, 28).'...' : $row2['message'] = $lastmsg;
+
+				echo '<div class="list-chat">
+						<div class="profile-picture">
+							<img src="billy.jpg">
+						</div>
+						<div class="info-chat">
+							<div class="profile-name">
+								<h5>' . $row['name'] . '</h5>
+							</div>
+							<div class="chat-content">
+								<p>' . $lastmsg . '</p>
+							</div>
+						</div>
+					</div>';
+			}
+		?>
+		
 	</aside>
 	<main>
 		<div class="start-chat" id='start-chat'>
 			<h1>Select friends to start chat!</h1>
 		</div>
-		<!-- <div class="nama-chat">
-			<i class='fas fa-chevron-left'></i>
-			<span>Venansius Mario</span>
-		</div> -->
 		<div class="content hidden" id='content'>
-		<div class="chat-keluar">
-			<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>				
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
+			<div class="chat-keluar">
 				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-			</div><div class="chat-keluar">
-			<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>				
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-			</div><div class="chat-keluar">
-			<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>				
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-			</div><div class="chat-keluar">
-			<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>				
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-			</div><div class="chat-keluar">
-			<div class="information">
 					<p>Read</p>
 					<p>12.50 AM</p>
 				</div>				
