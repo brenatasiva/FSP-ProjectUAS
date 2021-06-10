@@ -18,10 +18,28 @@
 		$res = $stmt->get_result();
 
 		while ($row = $res->fetch_assoc()) {
+			$date = date_create($row['time']);
 			if($row['sender'] == $sender){
-				$result .= "<div id='txtkanan'>". $row['message'] ."</div><br>";
+				$result .= '<div class="chat-keluar">
+								<div class="information">
+									<p>Read</p>
+									<p>' . date_format($date,"h:i A") . '</p>
+								</div>				
+								<div class="details">
+									<p>' . $row['message'] . '</p>
+								</div>
+							</div>';
+			
 			}else{
-				$result .= "<div id='txtkiri'>". $row['message'] ."</div><br>";
+				$result .= '<div class="chat-masuk">	
+								<div class="details">
+									<p>' . $row['message'] . '</p>
+								</div>
+								<div class="information">
+									<p>Read</p>
+									<p>' . date_format($date,"h:i A") . '</p>
+								</div>
+							</div>';
 			}
 		}
 		echo $result;
