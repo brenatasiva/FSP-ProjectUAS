@@ -75,7 +75,7 @@
 						$('#aside').html(data);
 					}
 				});
-			}, 500);
+			}, 300);
  		});
 
 		$('body').on('click','.list-chat', function(){
