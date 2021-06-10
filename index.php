@@ -234,7 +234,7 @@
 			<span>Venansius Mario</span>
 		</div> -->
 		<div class="content hidden" id='content'>
-		<div class="chat-keluar">
+			<div class="chat-keluar">
 			<div class="information">
 					<p>Read</p>
 					<p>12.50 AM</p>
@@ -373,9 +373,9 @@
 				}
 			});
 		});
-		var screenWidth = screen.width;
+		
 		$('body').on('click','.list-chat', function(){
-			
+				var screenWidth = window.innerWidth;
 				var startChat = document.getElementById("start-chat");
 				startChat.classList.add("hidden");
 				var chatBox = document.getElementById("content");
@@ -384,8 +384,6 @@
 				sendBox.classList.remove("hidden");
 			if(screenWidth <= 576)
 			{
-				$('aside').hide();
-				$('nav').hide();
 				$('nav').addClass('hidden');
 				$('aside').addClass('hidden');
 				$('main').addClass('display-flex');

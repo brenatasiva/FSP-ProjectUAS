@@ -41,10 +41,6 @@ body{
 	background: none;
 }
 
-.div-control{
-	/*border: 1px solid black;*/
-}
-
 .form-control input{
 	padding: 5px;
 	border-radius: 7px;
@@ -363,7 +359,7 @@ main .send-message{
 		overflow: inherit;
 	}
 	main{
-		display: none !important;
+		display: none;
 		padding: 0px;
 	}
 	main .content{
