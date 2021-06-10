@@ -26,17 +26,38 @@
 					$_SESSION['name'] = $row['name'];
 				}
 				
-				$sql = "UPDATE users set status = 'Online' where iduser = $id";
-				$res = $mysqli->query($sql);
+				$sql = "UPDATE users set status = 'Online' where iduser = ?";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("i", $_SESSION['iduser']);
+				$stmt->execute();
 			}
 			header("location: index.php");
 		}
 		if(isset($_POST['btnregister'])){
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$repassword = $_POST['repassword'];
 
+			if($password == $repassword){
+				$sql = "SELECT * FROM users where username = ?";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("s", $username);
+				$stmt->execute();
+				$res = $stmt->get_result();
+	
+				if ($res->num_rows > 0) {
+					header("location: register.php");
+				} else {
+					header("location: login.php");
+				}
+			}
 		}
 		if(isset($_POST['btnlogout'])){
-			$sql = "UPDATE users set status = 'Offline' where iduser = " . $_SESSION['iduser'];
-			$res = $mysqli->query($sql);
+			$sql = "UPDATE users set status = 'Offline' where iduser = ?";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("i", $_SESSION['iduser']);
+			$stmt->execute();
+
 			session_destroy();
 			header("location: login.php");
 		}
