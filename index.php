@@ -226,14 +226,14 @@
 		</div>
 	</aside>
 	<main>
-		<div class="start-chat hidden">
+		<div class="start-chat" id='start-chat'>
 			<h1>Select friends to start chat!</h1>
 		</div>
-		<div class="nama-chat">
+		<!-- <div class="nama-chat">
 			<i class='fas fa-chevron-left'></i>
 			<span>Venansius Mario</span>
-		</div>
-		<div class="content">
+		</div> -->
+		<div class="content hidden" id='content'>
 		<div class="chat-keluar">
 			<div class="information">
 					<p>Read</p>
@@ -328,7 +328,7 @@
 		</div>
 		
 
-		<div class="send-message">
+		<div class="send-message hidden" id='send-message'>
 			<img src="mario.jpg">
 			<input type="text" placeholder="Type a message...">
 			<button><i class="fab fa-telegram-plane"></i></button>
@@ -373,12 +373,39 @@
 				}
 			});
 		});
-
+		var screenWidth = screen.width;
 		$('body').on('click','.list-chat', function(){
-			$('aside').hide();
-			$('nav').hide();
-			$('main').show();
-		})
+			
+				var startChat = document.getElementById("start-chat");
+				startChat.classList.add("hidden");
+				var chatBox = document.getElementById("content");
+				chatBox.classList.remove("hidden");
+				var sendBox = document.getElementById("send-message");
+				sendBox.classList.remove("hidden");
+			if(screenWidth <= 576)
+			{
+				$('aside').hide();
+				$('nav').hide();
+				$('nav').addClass('hidden');
+				$('aside').addClass('hidden');
+				$('main').addClass('display-flex');
+			}
+		});
+
+		var globalResizeTimer = null;
+
+		$(window).resize(function() {
+			if(globalResizeTimer != null) window.clearTimeout(globalResizeTimer);
+			globalResizeTimer = window.setTimeout(function() {
+				if(screenWidth <= 576)
+				{
+					$('main').addClass('hidden');
+				}
+				else{
+					$('main').addClass('display-flex');
+				}
+			}, 200);
+		});
 	</script>
 </body>
 </html>

@@ -342,6 +342,9 @@ main .send-message{
 .hidden{
 	display: none !important;
 }
+.display-flex{
+	display: flex;
+}
 
 @media (max-width: 576px){
 	body{
@@ -360,7 +363,7 @@ main .send-message{
 		overflow: inherit;
 	}
 	main{
-		display: none;
+		display: none !important;
 		padding: 0px;
 	}
 	main .content{
