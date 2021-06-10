@@ -344,6 +344,8 @@ main .send-message{
 @media (max-width: 576px){
 	body{
 		background-color: #fff;
+		height: 100vh;
+		margin: 0px;
 	}
 	.wrapper{
 		grid-template-columns: 1fr;
