@@ -3,13 +3,13 @@
 <head>
 	<title>Login</title>
 	<script type="text/javascript" src="jquery.js"></script>
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="css/css.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="kotak-login">
-		<form method="post" action="login_process.php"  enctype="multipart/form-data">
+		<form method="post" action="process.php"  enctype="multipart/form-data">
 			<div class='judul-chat'>
 				<h1>Nge-Chat</h1>
 		</div>

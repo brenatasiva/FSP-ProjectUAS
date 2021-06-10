@@ -31,7 +31,7 @@
             
             $hasil .= '<div class="list-chat" idreceiver=' . $row['iduser'] . '>
                             <div class="profile-picture">
-                                <img src="billy.jpg">
+                                <img src="img/'. $row['iduser'] . '.jpg">
                             </div>
                             <div class="info-chat">
                                 <div class="profile-name">

@@ -18,7 +18,7 @@
 	<meta name="viewport" content="width=device-width" initial-scale=1>
 	<title>Index</title>
 	<script type="text/javascript" src="jquery.js"></script>
-	<link rel="stylesheet" href="css.css">
+	<link rel="stylesheet" href="css/css.css">
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
@@ -26,13 +26,15 @@
 		<header>
 			<div class="pembungkus-kiri">
 				<div class="gambar">
-					<img src="billy.jpg" alt="">
+					<img src="img/<?php echo $id; ?>.jpg" alt="">
 				</div>
 				<div class="nama">
 					<h4><?php echo $name; ?></h4>
 				</div>
 			</div>
-			<a href="login_process.php" class="pembungkus-kanan" name='btnlogout'>Logout</a>
+			<form method="post" action="process.php"  enctype="multipart/form-data">
+				<input type="submit" name="btnlogout" value="LOGOUT" class="pembungkus-kanan">
+			</form>
 		</header>
 		<nav>
 			<input type="text" placeholder="Search..">
@@ -50,7 +52,7 @@
 			
 
 			<div class="send-message hidden" id='send-message'>
-				<img src="mario.jpg">
+				<img src="img/<?php echo $id; ?>.jpg">
 				<input type="text" placeholder="Type a message..." id='txtmessage'>
 				<button id='btnsend'><i class="fab fa-telegram-plane"></i></button>
 			</div>
