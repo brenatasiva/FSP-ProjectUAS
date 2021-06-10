@@ -25,14 +25,21 @@
 					<label for="">Password</label>
 				</div>
 				<div class="div-control">
-				<input type="text" placeholder="Password" name="username"></div>
+				<input type="password" placeholder="Password" name="password"></div>
 			</div>
 			<div class="form-control">
 				<div class="div-label">
 					<label for="">Confirm Password</label>
 				</div>
 				<div class="div-control">
-				<input type="text" placeholder="Confrim Password" name="username"></div>
+				<input type="password" placeholder="Confrim Password" name="confirmpwd"></div>
+			</div>
+			<div class="form-control">
+				<div class="div-label">
+					<label for="">Insert Your Picture</label>
+				</div>
+				<div class="div-control">
+				<input type="file" placeholder="Profile picture" name="gambar"></div>
 			</div>
 			<div class="button">
 				<input type="button" name="btnlogin" value="Register">

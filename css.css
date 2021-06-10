@@ -30,7 +30,7 @@ body{
 	grid-gap: 5px;
 }
 .div-label{
-	width: 50%;
+	width: 200px;
 	padding: 5px;
 }
 .judul-chat h1{
@@ -41,13 +41,12 @@ body{
 	background: none;
 }
 
-.form-control input{
+.form-control input[type='text'],input[type='password']{
 	padding: 5px;
 	border-radius: 7px;
 	outline: none;
 	border: 1.5px solid black;
 }
-
 .button input{
 	margin-top: 10px;
 	width: 100%;
