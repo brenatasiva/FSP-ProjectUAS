@@ -146,17 +146,20 @@
 				$('main').addClass('display-flex');
 				$('main').removeClass('hidden');
 			}
+		});
+
 		document.getElementById("txtmessage").addEventListener("keyup", function(event) {
 			if (event.keyCode === 13) {
 				event.preventDefault();
 				document.getElementById("btnsend").click();
-			}
-			var startChat = document.getElementById("start-chat");
+			
+				var startChat = document.getElementById("start-chat");
 				startChat.classList.add("hidden");
 				var chatBox = document.getElementById("content");
 				chatBox.classList.remove("hidden");
 				var sendBox = document.getElementById("send-message");
 				sendBox.classList.remove("hidden");
+			}
 		});
 		
 
