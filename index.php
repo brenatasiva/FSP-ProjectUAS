@@ -86,7 +86,7 @@
 				
 				(strlen($lastmsg) > 28) ? $row2['message'] = substr($lastmsg, 0, 28).'...' : $row2['message'] = $lastmsg;
 
-				echo '<div class="list-chat">
+				echo '<div class="list-chat" idreceiver=' . $row['iduser'] . '>
 						<div class="profile-picture">
 							<img src="billy.jpg">
 						</div>
@@ -108,25 +108,7 @@
 			<h1>Select friends to start chat!</h1>
 		</div>
 		<div class="content hidden" id='content'>
-			<div class="chat-keluar">
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>				
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-			</div>
+			
 		</div>
 		
 
@@ -139,22 +121,45 @@
 	</div>
 
 	<script type="text/javascript">
-		$('body').on('change', '#listuser', function(){
-			var receiver = $("#listuser").val();
-			var sender = '<?php echo $id ?>';
-			setInterval(function(){
-				$.ajax({
-					method: "post",
-					url: "realtime_ajax.php",
-					data: {sender: sender,
-							receiver: receiver},
-					dataType: "text",
-					success:function(data){
-						$('#container_content').html(data);
-					}
-				});
-			}, 300);
+		var receiver;
+		var sender;
+		var interval;
+		var screenWidth = screen.width;
+
+		$('body').on('click','.list-chat', function(){
+			var startChat = document.getElementById("start-chat");
+			startChat.classList.add("hidden");
+			var chatBox = document.getElementById("content");
+			chatBox.classList.remove("hidden");
+			var sendBox = document.getElementById("send-message");
+			sendBox.classList.remove("hidden");
+			if(screenWidth <= 576)
+			{
+				$('aside').hide();
+				$('nav').hide();
+				$('nav').addClass('hidden');
+				$('aside').addClass('hidden');
+				$('main').addClass('display-flex');
+			}
+
+			clearInterval(interval);
+			receiver = $(this).attr('idreceiver');
+			sender = <?php echo $id ?>;
+			interval = setInterval(realtime, 300);
 		});
+
+		function realtime(){
+			$.ajax({
+				method: "post",
+				url: "realtime_ajax.php",
+				data: {sender: sender,
+						receiver: receiver},
+				dataType: "text",
+				success:function(data){
+					$('#content').html(data);
+				}
+			});
+		}
 
 		$('body').on('click', '#btnsend', function(){
 			var receiver = $("#listuser").val();
@@ -175,24 +180,7 @@
 				}
 			});
 		});
-		var screenWidth = screen.width;
-		$('body').on('click','.list-chat', function(){
-			
-				var startChat = document.getElementById("start-chat");
-				startChat.classList.add("hidden");
-				var chatBox = document.getElementById("content");
-				chatBox.classList.remove("hidden");
-				var sendBox = document.getElementById("send-message");
-				sendBox.classList.remove("hidden");
-			if(screenWidth <= 576)
-			{
-				$('aside').hide();
-				$('nav').hide();
-				$('nav').addClass('hidden');
-				$('aside').addClass('hidden');
-				$('main').addClass('display-flex');
-			}
-		});
+		
 
 		var globalResizeTimer = null;
 

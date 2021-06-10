@@ -30,7 +30,23 @@
 			header("location: index.php");
 		}
 		if(isset($_POST['btnregister'])){
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$repassword = $_POST['repassword'];
 
+			if($password == $repassword){
+				$sql = "SELECT * FROM users where username = ?";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("s", $username);
+				$stmt->execute();
+				$res = $stmt->get_result();
+	
+				if ($res->num_rows > 0) {
+					header("location: register.php");
+				} else {
+					header("location: login.php");
+				}
+			}
 		}
 		if(isset($_POST['btnlogout'])){
 			session_destroy();

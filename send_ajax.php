@@ -11,7 +11,10 @@
 		$receiver = $_POST['receiver'];
 		$message = $_POST['message'];
 
-		$sql = "INSERT into chat (sender, receiver, message) values ($sender, $receiver, '$message')";
+		$sql = "INSERT into chat (sender, receiver, message) values (?, ?, ?)";
+		$stmt = $mysqli->prepare($sql);
+		$stmt->bind_param("sss", $sender, $receiver, $message);
+		$stmt->execute();
 		
 		if($mysqli->query($sql)){
 			$result = "";

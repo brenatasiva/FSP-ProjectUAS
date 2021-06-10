@@ -19,9 +19,26 @@
 
 		while ($row = $res->fetch_assoc()) {
 			if($row['sender'] == $sender){
-				$result .= "<div id='txtkanan'>". $row['message'] ."</div><br>";
+				$result .= '<div class="chat-keluar">
+								<div class="information">
+									<p>Read</p>
+									<p>12.50 AM</p>
+								</div>				
+								<div class="details">
+									<p>' . $row['message'] . '</p>
+								</div>
+							</div>';
+			
 			}else{
-				$result .= "<div id='txtkiri'>". $row['message'] ."</div><br>";
+				$result .= '<div class="chat-masuk">
+								<div class="information">
+									<p>Read</p>
+									<p>12.50 AM</p>
+								</div>				
+								<div class="details">
+									<p>' . $row['message'] . '</p>
+								</div>
+							</div>';
 			}
 		}
 		echo $result;
