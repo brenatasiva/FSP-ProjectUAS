@@ -77,7 +77,7 @@
 					<h5>Venansius Mario</h5>
 				</div>
 				<div class="chat-content">
-					<p>Test Message</p>
+					<p>wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p>
 				</div>
 			</div>
 		</div>
@@ -229,31 +229,16 @@
 		<div class="start-chat hidden">
 			<h1>Select friends to start chat!</h1>
 		</div>
+		<div class="nama-chat">
+			<i class='fas fa-chevron-left'></i>
+			<span>Venansius Mario</span>
+		</div>
 		<div class="content">
-			<div class="chat-keluar">
-				<div class="information">
+		<div class="chat-keluar">
+			<div class="information">
 					<p>Read</p>
 					<p>12.50 AM</p>
-				</div>
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-masuk">
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
-				<img src="billy.jpg" alt="">
-				<div class="details">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
-				</div>
-			</div>
-			<div class="chat-keluar">
-				<div class="information">
-					<p>Read</p>
-					<p>12.50 AM</p>
-				</div>
+				</div>				
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -263,12 +248,15 @@
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
-			</div>
-			<div class="chat-keluar">
 				<div class="information">
 					<p>Read</p>
 					<p>12.50 AM</p>
 				</div>
+			</div><div class="chat-keluar">
+			<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>				
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -278,12 +266,15 @@
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
-			</div>
-			<div class="chat-keluar">
 				<div class="information">
 					<p>Read</p>
 					<p>12.50 AM</p>
 				</div>
+			</div><div class="chat-keluar">
+			<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>				
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
 				</div>
@@ -292,6 +283,46 @@
 				<img src="billy.jpg" alt="">
 				<div class="details">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
+				</div>
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
+			</div><div class="chat-keluar">
+			<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>				
+				<div class="details">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
+				</div>
+			</div>
+			<div class="chat-masuk">
+				<img src="billy.jpg" alt="">
+				<div class="details">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
+				</div>
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>
+			</div><div class="chat-keluar">
+			<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
+				</div>				
+				<div class="details">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
+				</div>
+			</div>
+			<div class="chat-masuk">
+				<img src="billy.jpg" alt="">
+				<div class="details">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo tenetur mollitia, possimus illo dolor, consectetur libero dolores, sint iusto quasi, ut molestiae cum aliquid suscipit commodi nemo nam minus labore!</p>
+				</div>
+				<div class="information">
+					<p>Read</p>
+					<p>12.50 AM</p>
 				</div>
 			</div>
 		</div>

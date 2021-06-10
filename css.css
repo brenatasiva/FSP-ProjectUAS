@@ -84,7 +84,7 @@ footer p a:hover{
 .wrapper{
 	width: 80%;
 	display: grid;
-	grid-template-columns: minmax(100px,300px) minmax(300px,auto);
+	grid-template-columns: 300px 928px;
 	grid-template-rows: 1fr 1fr 9fr;
 	grid-template-areas:
 		"header header"
@@ -194,11 +194,26 @@ img{
 	max-height: 16px;
 	overflow-y: hidden;
 }
+.nama-chat{
+	display: none;
+}
+
+.nama-chat .fa-chevron-left:hover{
+	cursor: pointer;
+	color: #888;
+}
+
 .chat-content{
 	font-size: 12px;
-	overflow-wrap: break-word;
+	overflow: hidden;
+}
+.chat-content p{
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .info-chat{
+	max-width: 210px;
+	max-height: 41px;
 }
 main{
 	display: flex;
@@ -239,13 +254,18 @@ main .content{
 	border-radius: 18px 18px 0px 18px;
 	box-shadow: 4px 13px 19px -9px rgba(0,0,0,0.75);
 }
-.chat-keluar .information{
-	margin-left: auto;
+.information{
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	align-items: flex-end;
 	padding: 10px;
+}
+.chat-keluar .information{
+	margin-left: auto;
+}
+.chat-masuk .information{
+	margin-right: auto;
 }
 .information p{
 	font-size: 12px;
@@ -258,7 +278,6 @@ main .content{
 	box-shadow: 4px 13px 19px -9px rgba(0,0,0,0.75);
 }
 .chat-masuk .details{
-	margin-right: auto;
 	max-width: 60%;
 }
 .chat-masuk img{
@@ -325,6 +344,9 @@ main .send-message{
 }
 
 @media (max-width: 576px){
+	body{
+		background-color: #fff;
+	}
 	.wrapper{
 		grid-template-columns: 1fr;
 		grid-template-rows: 1fr 1fr 9fr;
@@ -334,11 +356,12 @@ main .send-message{
 			"aside"
 			"main";
 		width: 100%;
-		max-height: 100vh;
+		min-height: 100vh;
 		overflow: inherit;
 	}
 	main{
 		display: none;
+		padding: 0px;
 	}
 	main .content{
 		max-height: 500px;
@@ -346,5 +369,17 @@ main .send-message{
 
 	.details p{
 		font-size: 10px;
+	}
+
+	.nama-chat{
+		display: flex;
+		background-color: #1c1c1c;
+		height: 30px;
+		display: flex;
+		align-items: center;
+	}
+	.nama-chat .fa-chevron-left,span{
+		margin: 0 10px;
+		color: rgb(255, 255, 255);
 	}
 }
