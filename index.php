@@ -145,7 +145,7 @@
 				$('aside').addClass('hidden');
 				$('main').addClass('display-flex');
 				$('main').removeClass('hidden');
-
+			}
 		document.getElementById("txtmessage").addEventListener("keyup", function(event) {
 			if (event.keyCode === 13) {
 				event.preventDefault();
