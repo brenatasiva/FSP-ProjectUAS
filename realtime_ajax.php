@@ -30,13 +30,13 @@
 							</div>';
 			
 			}else{
-				$result .= '<div class="chat-masuk">
+				$result .= '<div class="chat-masuk">	
+								<div class="details">
+									<p>' . $row['message'] . '</p>
+								</div>
 								<div class="information">
 									<p>Read</p>
 									<p>12.50 AM</p>
-								</div>				
-								<div class="details">
-									<p>' . $row['message'] . '</p>
 								</div>
 							</div>';
 			}
