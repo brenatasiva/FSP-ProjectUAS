@@ -18,6 +18,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width" initial-scale=1>
 	<title>Index</title>
 	<script type="text/javascript" src="jquery.js"></script>
 	<link rel="stylesheet" href="css.css">
