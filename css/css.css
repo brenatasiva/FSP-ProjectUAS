@@ -383,7 +383,7 @@ main .send-message{
 
 	.content{
 		/* align-items: stretch; */
-		max-height: 610px;
+		height: 25vh;
 	}
 
 	.details p{
@@ -393,17 +393,12 @@ main .send-message{
 	.nama-chat{
 		display: none;
 	}
-	main{
+	 /* main{
 		position: relative;
 	}
 	.send-message{
 		width: 100%;
 		position: absolute;
 		bottom: 0px;
-	}
-	.content{
-		position: absolute;
-		bottom: 50px;
-		width: 100%;
-	}
+	} */
 }
