@@ -25,15 +25,16 @@
 	<div class="wrapper">
 		<header>
 			<div class="pembungkus-kiri">
+				<i class='fas fa-chevron-left hidden' id='btnback'></i>
 				<div class="gambar">
 					<img src="<?php echo (file_exists('img/'.$id.'.jpg')) ? 'img/'.$id.'.jpg' : 'img/0.jpg'; ?>" alt="">
 				</div>
 				<div class="nama">
-					<h4><?php echo $name; ?></h4>
+					<h4 id='nama'><?php echo $name; ?></h4>
 				</div>
 			</div>
 			<form method="post" action="process.php"  enctype="multipart/form-data">
-				<input type="submit" name="btnlogout" value="LOGOUT" class="pembungkus-kanan">
+				<input type="submit" id='btnlogout' name="btnlogout" value="LOGOUT" class="pembungkus-kanan">
 			</form>
 		</header>
 		<nav>
@@ -45,6 +46,9 @@
 		<main>
 			<div class="start-chat" id='start-chat'>
 				<h1>Select friends to start chat!</h1>
+			</div>
+			<div class="nama-chat hidden">
+				<span>Mario</span>
 			</div>
 			<div class="content hidden" id='content'>
 				
@@ -63,7 +67,6 @@
 		var receiver;
 		var sender;
 		var interval;
-		var screenWidth = screen.width;
 
 		$(document).ready(function() {
 			sender = <?php echo $id ?>;
@@ -81,26 +84,38 @@
  		});
 
 		$('body').on('click','.list-chat', function(){
+			var screenWidth = $(window).width();
 			var startChat = document.getElementById("start-chat");
 			startChat.classList.add("hidden");
 			var chatBox = document.getElementById("content");
 			chatBox.classList.remove("hidden");
 			var sendBox = document.getElementById("send-message");
 			sendBox.classList.remove("hidden");
+			$('.nama-chat').removeClass('hidden');
 			if(screenWidth <= 576)
 			{
-				$('aside').hide();
-				$('nav').hide();
 				$('nav').addClass('hidden');
 				$('aside').addClass('hidden');
 				$('main').addClass('display-flex');
+				$('main').removeClass('hidden');
+				$('#btnlogout').addClass('hidden');
+				$('#btnback').removeClass('hidden');
+				
 			}
-			$(this).addClass('chat-clicked');
+			// $(this).addClass('chat-clicked');
 			clearInterval(interval);
 			receiver = $(this).attr('idreceiver');
 			interval = setInterval(realtime, 300);
 			$('#txtmessage').focus();
 			
+		});
+
+		$('body').on('click','#btnback',function(){
+			$('main').removeClass('display-flex');
+			$('aside').removeClass('hidden');
+			$('nav').removeClass('hidden');
+			$('#btnlogout').removeClass('hidden');
+			$('#btnback').addClass('hidden');
 		});
 
 		function realtime(){
@@ -139,16 +154,16 @@
 		// var body = document.getElementsByTagName("BODY")[0];
 		// var screenWidth = body.offsetWidth;
 		
-		$('body').on('click','.list-chat', function(){			
-			var screenWidth = $(window).width();
-			if(screenWidth <= 576)
-			{
-				$('nav').addClass('hidden');
-				$('aside').addClass('hidden');
-				$('main').addClass('display-flex');
-				$('main').removeClass('hidden');
-			}
-		});
+		// $('body').on('click','.list-chat', function(){			
+		// 	var screenWidth = $(window).width();
+		// 	if(screenWidth <= 576)
+		// 	{
+		// 		$('nav').addClass('hidden');
+		// 		$('aside').addClass('hidden');
+		// 		$('main').addClass('display-flex');
+		// 		$('main').removeClass('hidden');
+		// 	}
+		// });
 
 		document.getElementById("txtmessage").addEventListener("keyup", function(event) {
 			if (event.keyCode === 13) {
@@ -175,22 +190,14 @@
 			// var screenWidth = screen.width;
 			var screenWidth = $(window).width();
 			var i = 0;
-				if(screenWidth <= 576)
+				if(screenWidth > 576)
 				{
-					// i = i + 1;
-					// if(i == 0){
-
-					// }
-						// $('main').addClass('hidden');
-						
-				}
-				else{
-					// $('main').addClass('display-flex');
 					$('main').removeClass('hidden');
 					$('main').removeClass('display-flex');
 					$('nav').removeClass('hidden');
 					$('aside').removeClass('hidden');
-					i = 0;
+					$('#btnback').addClass('hidden');
+					$('#btnlogout').removeClass('hidden');
 				}
 		});
 	</script>
