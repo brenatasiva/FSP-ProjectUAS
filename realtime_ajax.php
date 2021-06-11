@@ -17,13 +17,6 @@
   $stmt->execute();
   $res = $stmt->get_result();
 
-  $sql = "SELECT name from users where iduser = ?";
-  $stmt = $mysqli->prepare($sql);
-  $stmt->bind_param("i", $receiver);
-  $stmt->execute();
-  $res2 = $stmt->get_result();
-  $row2 = $res2->fetch_assoc();
-
   while ($row = $res->fetch_assoc()) {
    $date = date_create($row['time']);
    
@@ -42,7 +35,7 @@
    }else{
     $result .= '<div class="chat-masuk"> 
         <div class="details">
-         '.$row2['name'].'
+         
          <p>' . $row['message'] . '</p>
         </div>
         <div class="information">

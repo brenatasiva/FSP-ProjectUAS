@@ -29,13 +29,13 @@
                 $lastmsg = substr($lastmsg, 0, 28).'...';
             }
             
-            $hasil .= '<div class="list-chat" idreceiver=' . $row['iduser'] . '>
+            $hasil .= '<div class="list-chat" idreceiver=' . $row['iduser'] . ' namaheader='. $row['name'] .'>
                             <div class="profile-picture">
                                 <img src="img/'. $row['iduser'] . '.jpg">
                             </div>
                             <div class="info-chat">
                                 <div class="profile-name">
-                                    <h5>' . $row['name'] . '</h5>
+                                    <h5 id="nama-header">' . $row['name'] . '</h5>
                                 </div>
                                 <div class="chat-content">
                                     <p>' . $lastmsg . '</p>

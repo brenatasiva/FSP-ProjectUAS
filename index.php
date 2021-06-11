@@ -48,7 +48,7 @@
 				<h1>Select friends to start chat!</h1>
 			</div>
 			<div class="nama-chat hidden">
-				<span>Mario</span>
+				<span id='nama-orang'>Mario</span>
 			</div>
 			<div class="content hidden" id='content'>
 				
@@ -92,6 +92,8 @@
 			var sendBox = document.getElementById("send-message");
 			sendBox.classList.remove("hidden");
 			$('.nama-chat').removeClass('hidden');
+			var nama = $(this).attr('namaheader');
+			$('#nama-orang').html(nama);
 			if(screenWidth <= 576)
 			{
 				$('nav').addClass('hidden');
@@ -100,13 +102,14 @@
 				$('main').removeClass('hidden');
 				$('#btnlogout').addClass('hidden');
 				$('#btnback').removeClass('hidden');
-				
+				$('#nama').html(nama)
 			}
 			// $(this).addClass('chat-clicked');
 			clearInterval(interval);
 			receiver = $(this).attr('idreceiver');
 			interval = setInterval(realtime, 300);
 			$('#txtmessage').focus();
+			
 			
 		});
 
@@ -188,6 +191,7 @@
 				
 			// }, 1);
 			// var screenWidth = screen.width;
+			
 			var screenWidth = $(window).width();
 			var i = 0;
 				if(screenWidth > 576)
@@ -198,6 +202,7 @@
 					$('aside').removeClass('hidden');
 					$('#btnback').addClass('hidden');
 					$('#btnlogout').removeClass('hidden');
+					// $('#nama').html(namaBaru);
 				}
 		});
 	</script>
