@@ -79,7 +79,7 @@ footer p a:hover{
 .wrapper{
 	width: 80%;
 	display: grid;
-	grid-template-columns: 300px 928px;
+	grid-template-columns: 300px auto;
 	grid-template-rows: 1fr 1fr 9fr;
 	grid-template-areas:
 		"header header"
@@ -101,6 +101,7 @@ header{
 	align-items: center;
 	justify-content: space-between;
 }
+
 header .gambar{
 	overflow: hidden;
 	margin: 0 10px;
@@ -108,14 +109,15 @@ header .gambar{
 header .nama{
 	color: white;
 }
-header a{
+header input{
 	background-color: #d8d8d8;
 	border-radius: 5px;
 	padding: 5px 10px;
 	color: #333333;
 	margin-right: 10px;
 }
-header a:hover{
+header input:hover{
+	cursor: pointer;
 	background-color: #888;
 }
 header img{
@@ -190,7 +192,16 @@ img{
 	overflow-y: hidden;
 }
 .nama-chat{
-	display: none;
+	display: flex;
+	background-color: #333;
+	height: 50px;
+	align-items: center;
+	border-radius: 10px 10px 0;	
+}
+.nama-chat span{
+	padding: 10px;
+	font-size: 15px;
+	color: #fff;
 }
 
 .nama-chat .fa-chevron-left:hover{
@@ -224,7 +235,6 @@ main{
 main .content{
 	overflow-y: auto;
 	padding: 0 10px;
-	flex-grow: 2;
 	max-width: 830px;
 }
 .content .details p{
@@ -283,7 +293,6 @@ main .content{
 }
 main .send-message{
 	padding: 5px;
-	flex-grow: 1;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -359,12 +368,21 @@ main .send-message{
 		min-height: 100vh;
 		overflow: inherit;
 	}
+	header .fa-chevron-left{
+		margin: 0 10px;
+		color: rgb(255, 255, 255);
+	}
+	header .fa-chevron-left:hover{
+		cursor: pointer;
+		color: rgb(135, 135, 135);
+	}
 	main{
 		display: none;
 		padding: 0px;
 	}
 
 	.content{
+		/* align-items: stretch; */
 		max-height: 610px;
 	}
 
@@ -373,14 +391,19 @@ main .send-message{
 	}
 
 	.nama-chat{
-		display: flex;
-		background-color: #1c1c1c;
-		height: 30px;
-		display: flex;
-		align-items: center;
+		display: none;
 	}
-	.nama-chat .fa-chevron-left,span{
-		margin: 0 10px;
-		color: rgb(255, 255, 255);
+	main{
+		position: relative;
+	}
+	.send-message{
+		width: 100%;
+		position: absolute;
+		bottom: 0px;
+	}
+	.content{
+		position: absolute;
+		bottom: 50px;
+		width: 100%;
 	}
 }
