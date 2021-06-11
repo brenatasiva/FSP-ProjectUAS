@@ -17,14 +17,16 @@
 		$stmt->execute();
 		$res = $stmt->get_result();
 
+		$sql = "SELECT name from users where iduser = ?";
+		$stmt = $mysqli->prepare($sql);
+		$stmt->bind_param("i", $receiver);
+		$stmt->execute();
+		$res2 = $stmt->get_result();
+		$row2 = $res2->fetch_assoc();
+
 		while ($row = $res->fetch_assoc()) {
 			$date = date_create($row['time']);
-			$sql = "SELECT name from users where iduser = ?";
-			$stmt = $mysqli->prepare($sql);
-            $stmt->bind_param("i", $receiver);
-            $stmt->execute();
-            $res2 = $stmt->get_result();
-            $row2 = $res2->fetch_assoc();
+			
 
 			if($row['sender'] == $sender){
 				$result .= '<div class="chat-keluar">
