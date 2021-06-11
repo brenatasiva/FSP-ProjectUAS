@@ -26,7 +26,7 @@
 		<header>
 			<div class="pembungkus-kiri">
 				<div class="gambar">
-					<img src="img/<?php echo $id; ?>.jpg" alt="">
+					<img src="<?php echo (file_exists('img/'.$id.'.jpg')) ? 'img/'.$id.'.jpg' : 'img/0.jpg'; ?>" alt="">
 				</div>
 				<div class="nama">
 					<h4><?php echo $name; ?></h4>
@@ -37,7 +37,7 @@
 			</form>
 		</header>
 		<nav>
-			<input type="text" placeholder="Search..">
+			<input type="text" placeholder="Search.." id="txtsearch">
 		</nav>
 		<aside id='aside'>
 
@@ -52,7 +52,7 @@
 			
 
 			<div class="send-message hidden" id='send-message'>
-				<img src="img/<?php echo $id; ?>.jpg">
+				<img src="<?php echo (file_exists('img/'.$id.'.jpg')) ? 'img/'.$id.'.jpg' : 'img/0.jpg'; ?>" alt="">
 				<input type="text" placeholder="Type a message..." id='txtmessage'>
 				<button id='btnsend'><i class="fab fa-telegram-plane"></i></button>
 			</div>
